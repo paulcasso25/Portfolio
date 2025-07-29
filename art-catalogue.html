@@ -66,47 +66,46 @@
             height: 0;
         }
 
-        /* Gallery Grid - 2 columns */
+        /* Gallery - 1 column with fitted images */
         .gallery {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
             padding: 2rem;
-            max-width: 1200px;
+            max-width: 900px;
             margin: 0 auto;
         }
         .item-card {
             text-align: center;
-            padding-bottom: 1.5rem;
         }
         .item-card img {
             width: 100%;
-            height: 300px;
-            object-fit: cover;
+            max-height: 70vh;
+            object-fit: contain;
             display: block;
-            margin-bottom: 0.8rem;
+            margin-bottom: 1rem;
         }
         .item-title {
             font-weight: bold;
             margin: 0.5rem 0;
-            font-size: 1.1rem;
+            font-size: 1.2rem;
         }
         .item-details {
             font-style: italic;
             color: #666;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             margin-bottom: 0.8rem;
         }
 
         /* Buttons */
         .btn {
             display: inline-block;
-            padding: 0.7rem 1.2rem;
+            padding: 0.7rem 1.5rem;
             border: 1px solid #D4AF37;
             color: #D4AF37;
             text-decoration: none;
             margin: 0.5rem 0;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             min-width: 120px;
             background: transparent;
             cursor: pointer;
@@ -120,14 +119,14 @@
         /* Contact Form */
         .contact-section {
             text-align: center;
-            padding: 2rem 1.5rem;
+            padding: 3rem 1.5rem;
             background: #f9f9f9;
             margin-top: 1rem;
         }
         .contact-section h2 {
             font-family: 'Didot', serif;
             font-size: 1.5rem;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
             color: #000;
         }
         .form-grid {
@@ -163,20 +162,19 @@
         /* Footer */
         footer {
             text-align: center;
-            padding: 1.5rem 1rem;
+            padding: 2rem 1rem;
             border-top: 1px solid #eee;
-            font-size: 0.75rem;
+            font-size: 0.8rem;
         }
 
         /* Responsive Adjustments */
         @media (max-width: 768px) {
             .gallery {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
                 padding: 1.5rem;
+                gap: 2rem;
             }
             .item-card img {
-                height: 250px;
+                max-height: 60vh;
             }
             .form-row {
                 grid-template-columns: 1fr;
@@ -185,15 +183,6 @@
             .form-row label {
                 text-align: left;
                 padding-top: 0.5rem;
-            }
-        }
-        @media (min-width: 1200px) {
-            .bio-content {
-                padding-left: 3rem;
-                width: 75%;
-            }
-            .bio-text br {
-                margin-top: 1.25rem;
             }
         }
     </style>
@@ -218,7 +207,7 @@
     <div class="gallery">
         <!-- Item 1 -->
         <div class="item-card">
-            <img src="https://raw.githubusercontent.com/paulcasso25/Art/main/20241202_160507.jpg" alt="Winter" loading="lazy">
+            <img src="https://raw.githubusercontent.com/paulcasso25/Art/main/20241202_160507.jpg" alt="Winter landscape painting" loading="lazy">
             <p class="item-title">Winter</p>
             <p class="item-details">Oil on Canvas | 2023</p>
             <a href="#contact" class="btn">Inquire</a>
@@ -226,7 +215,7 @@
         
         <!-- Item 2 -->
         <div class="item-card">
-            <img src="https://raw.githubusercontent.com/paulcasso25/Art/main/20241214_152829.jpg" alt="Moonlight in Red Sky" loading="lazy">
+            <img src="https://raw.githubusercontent.com/paulcasso25/Art/main/20241214_152829.jpg" alt="Red sky with moonlight painting" loading="lazy">
             <p class="item-title">Moonlight in Red Sky</p>
             <p class="item-details">Acrylic on Wood | 2022</p>
             <a href="#contact" class="btn">Inquire</a>
@@ -234,7 +223,7 @@
         
         <!-- Item 3 -->
         <div class="item-card">
-            <img src="https://raw.githubusercontent.com/paulcasso25/Art/main/20241231_145002.jpg" alt="Heat" loading="lazy">
+            <img src="https://raw.githubusercontent.com/paulcasso25/Art/main/20241231_145002.jpg" alt="Abstract heat wave painting" loading="lazy">
             <p class="item-title">Heat</p>
             <p class="item-details">Acrylic on Canvas | 2022</p>
             <a href="#contact" class="btn">Inquire</a>
@@ -242,7 +231,7 @@
 
         <!-- Item 4 -->
         <div class="item-card">
-            <img src="https://raw.githubusercontent.com/paulcasso25/Art/main/20250427_142841.jpg" alt="Summer Rain" loading="lazy">
+            <img src="https://raw.githubusercontent.com/paulcasso25/Art/main/20250427_142841.jpg" alt="Summer rain scene painting" loading="lazy">
             <p class="item-title">Summer Rain</p>
             <p class="item-details">Acrylic on Canvas | 2022</p>
             <a href="#contact" class="btn">Inquire</a>
@@ -250,7 +239,7 @@
 
         <!-- Item 5 -->
         <div class="item-card">
-            <img src="https://raw.githubusercontent.com/paulcasso25/Art/main/20250607_152052.jpg" alt="The Old Bridge" loading="lazy">
+            <img src="https://raw.githubusercontent.com/paulcasso25/Art/main/20250607_152052.jpg" alt="Old bridge landscape painting" loading="lazy">
             <p class="item-title">The Old Bridge</p>
             <p class="item-details">Acrylic on Canvas | 2022</p>
             <a href="#contact" class="btn">Inquire</a>
@@ -258,7 +247,7 @@
 
         <!-- Item 6 -->
         <div class="item-card">
-            <img src="https://raw.githubusercontent.com/paulcasso25/Art/main/20250719_143235.jpg" alt="Remembrance" loading="lazy">
+            <img src="https://raw.githubusercontent.com/paulcasso25/Art/main/20250719_143235.jpg" alt="Memorial remembrance painting" loading="lazy">
             <p class="item-title">Remembrance</p>
             <p class="item-details">Acrylic on Canvas | 2022</p>
             <a href="#contact" class="btn">Inquire</a>
