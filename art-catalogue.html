@@ -207,30 +207,76 @@ Paul Casso would like to share some of their more recent works with the rest of 
 
     <!-- Netlify Contact Form -->
     <section class="contact-section" id="contact">
-        <h2>Contact the Artist</h2>
-        <form name="contact" netlify netlify-honeypot="bot-field" action="/success.html">
-            <!-- Anti-spam hidden field -->
-            <p class="hidden">
-                <label>Don't fill this out: <input name="bot-field"></label>
-            </p>
-            
-            <!-- Visible form fields -->
-            <label for="name">Your Name</label>
-            <input type="text" id="name" name="name" required>
-            
-            <label for="email">Your Email</label>
-            <input type="email" id="email" name="email" required>
-            
-            <label for="artwork">Artwork Title (Optional)</label>
-            <input type="text" id="artwork" name="artwork">
-            
-            <label for="message">Your Inquiry</label>
-            <textarea id="message" name="message" required></textarea>
-            
-            <button type="submit" class="btn">Send Message</button>
-        </form>
-    </section>
+       - In your existing contact-section div, replace the form with this: -->
+<section class="contact-section" id="contact">
+  <h2>Contact the Artist</h2>
+  <form name="contact" netlify netlify-honeypot="bot-field" action="/success.html">
+    <!-- Anti-spam field -->
+    <p class="hidden">
+      <label>Don't fill this out: <input name="bot-field"></label>
+    </p>
+    
+    <!-- Vertical Form Fields -->
+    <div class="form-group">
+      <label for="name">Full Name</label>
+      <input type="text" id="name" name="name" required>
+    </div>
+    
+    <div class="form-group">
+      <label for="email">Email Address</label>
+      <input type="email" id="email" name="email" required>
+    </div>
+    
+    <div class="form-group">
+      <label for="artwork">Artwork of Interest (Optional)</label>
+      <input type="text" id="artwork" name="artwork">
+    </div>
+    
+    <div class="form-group">
+      <label for="message">Your Message</label>
+      <textarea id="message" name="message" rows="5" required></textarea>
+    </div>
+    
+    <button type="submit" class="btn">Send Inquiry</button>
+  </form>
+</section>
 
+<!-- Add this CSS to your style section -->
+<style>
+  .contact-form {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  
+  .form-group {
+    margin-bottom: 1.5rem;
+  }
+  
+  .contact-form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    color: #666;
+  }
+  
+  .contact-form input,
+  .contact-form textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    font-family: 'Georgia', serif;
+    font-size: 1rem;
+  }
+  
+  .contact-form textarea {
+    min-height: 150px;
+  }
+  
+  .hidden {
+    display: none;
+  }
+    
+</style>
     <footer>
         <p>© 2025 The Gallery. All rights reserved.</p>
     </footer>
