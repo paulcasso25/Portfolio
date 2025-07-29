@@ -139,19 +139,76 @@
 <body>
     <header>
         <h1>Significant New Artist Collection</h1>
-        <h2>Paul Casso</h2>
+        <h1>Paul Casso</h1>
+        <p>"_____________________________________"<p>
         <p>Curated for the Discerning Collector</p>
     </header>
 
-    <!-- New Artist Bio Section -->
-    <section class="artist-bio">
+<!-- Mobile-First Bio Section -->
+<section class="artist-bio">
+    <div class="bio-content">
         <div class="artist-name">Paul Casso</div>
-        <p>Paul Casso is a nom de plume, as one might guess.  He is not a relative of a certain “Pi Casso”, if one’s imagination had begun to stray. 
-The artist has had some formal artistic training however, he is largely self-trained.  He is mostly influenced by real world experiences, theatre, music, a lifetime of observations and disparate, exotic travels.  
+        <p class="bio-text">Paul Casso is a nom de plume, as one might guess.  He is not a relative of a certain “Pi Casso”, if one’s imagination had begun to stray.<br><br>
+        The artist has had some formal artistic training however, he is largely self-trained.  He is mostly influenced by real world experiences, theatre, music, a lifetime of observations and disparate, exotic travels.<br><br>
+        Paul Casso would like to share some of their more recent works with the rest of the world to bring joy, enlightenment, and possibly inspiration to others to take up a brush, pencil, charcoal, pen or just a marker and express themselves.</p>
+    </div>
+</section>
 
-Paul Casso would like to share some of their more recent works with the rest of the world to bring joy, enlightenment, and possibly inspiration to others to take up a brush, pencil, charcoal, pen or just a marker and express themselves. 
-.</p>
-    </section>
+<!-- Optimized CSS -->
+<style>
+    .artist-bio {
+        padding: 1.25rem 0;
+        border-bottom: 1px solid #eee;
+        display: flex;
+        justify-content: center;
+    }
+    
+    .bio-content {
+        width: 88%;
+        max-width: 680px;
+        text-align: left;
+        padding-left: 1.5rem; /* Mobile indent */
+    }
+    
+    .artist-name {
+        font-family: 'Didot', serif;
+        font-size: clamp(1.25rem, 5vw, 1.5rem); /* Fluid sizing */
+        color: #000;
+        margin-bottom: 1rem;
+        padding-left: 0.25rem;
+    }
+    
+    .bio-text {
+        line-height: 1.7;
+        font-size: clamp(0.95rem, 3.5vw, 1.1rem); /* Fluid text */
+        margin: 0;
+        padding: 0 0.25rem;
+        word-spacing: 0.05em;
+    }
+    
+    /* Perfect paragraph spacing */
+    .bio-text br {
+        display: block;
+        content: "";
+        margin-top: 1rem; /* Mobile line gap */
+        height: 0;
+    }
+    
+    @media (min-width: 768px) {
+        .artist-bio {
+            padding: 1.75rem 0;
+        }
+        
+        .bio-content {
+            padding-left: 3rem; /* Desktop indent */
+            width: 75%;
+        }
+        
+        .bio-text br {
+            margin-top: 1.25rem; /* Desktop line gap */
+        }
+    }
+</style>
 
 <div class="gallery">
   <!-- Item 1 -->
