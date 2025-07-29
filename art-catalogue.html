@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Art Collection | Sotheby's Style</title>
+    <title>Paul Casso Art Collection</title>
     <style>
         /* Modern Reset & Base Styles */
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -27,43 +27,78 @@
             letter-spacing: 0.5px;
             margin-bottom: 0.5rem;
         }
+        .header-divider {
+            margin: 1rem auto;
+            width: 80%;
+            border-top: 1px solid #ddd;
+        }
 
-        /* Gallery Grid */
-       .gallery {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr); /* 2 columns */
-  gap: 1.5rem;
-  padding: 1.5rem;
-  max-width: 1200px;
-  margin: 0 auto;
-}
+        /* Artist Bio Section */
+        .artist-bio {
+            padding: 1.25rem 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: center;
+        }
+        .bio-content {
+            width: 88%;
+            max-width: 680px;
+            text-align: left;
+            padding-left: 1.5rem;
+        }
+        .artist-name {
+            font-family: 'Didot', serif;
+            font-size: clamp(1.25rem, 5vw, 1.5rem);
+            color: #000;
+            margin-bottom: 1rem;
+        }
+        .bio-text {
+            line-height: 1.7;
+            font-size: clamp(0.95rem, 3.5vw, 1.1rem);
+            margin: 0;
+            padding: 0 0.25rem;
+            word-spacing: 0.05em;
+        }
+        .bio-text br {
+            display: block;
+            content: "";
+            margin-top: 1rem;
+            height: 0;
+        }
 
-/* Mobile responsiveness - stack to 1 column */
-@media (max-width: 768px) {
-  .gallery {
-    grid-template-columns: 1fr;
-  }
-}
-        /* Item Cards */
+        /* Gallery Grid - 2 columns */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 2rem;
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
         .item-card {
-            margin-bottom: 1.5rem;
             text-align: center;
-            border-bottom: 1px solid #f5f5f5;
             padding-bottom: 1.5rem;
+        }
+        .item-card img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            display: block;
+            margin-bottom: 0.8rem;
         }
         .item-title {
             font-weight: bold;
             margin: 0.5rem 0;
-            font-size: 1rem;
+            font-size: 1.1rem;
         }
         .item-details {
             font-style: italic;
             color: #666;
-            font-size: 0.85rem;
-            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            margin-bottom: 0.8rem;
         }
 
-        /* Buttons & Form Elements */
+        /* Buttons */
         .btn {
             display: inline-block;
             padding: 0.7rem 1.2rem;
@@ -82,7 +117,7 @@
             color: white;
         }
 
-        /* Contact Section */
+        /* Contact Form */
         .contact-section {
             text-align: center;
             padding: 2rem 1.5rem;
@@ -95,20 +130,30 @@
             margin-bottom: 1rem;
             color: #000;
         }
-        .contact-form {
+        .form-grid {
             max-width: 500px;
             margin: 0 auto;
-            text-align: left;
         }
-        .contact-form input,
-        .contact-form textarea {
+        .form-row {
+            display: grid;
+            grid-template-columns: 120px 1fr;
+            gap: 0.75rem;
+            align-items: center;
+            margin-bottom: 1.25rem;
+        }
+        .form-row label {
+            font-size: 0.95rem;
+            color: #555;
+            text-align: right;
+        }
+        .form-row input,
+        .form-row textarea {
             width: 100%;
             padding: 0.7rem;
-            margin: 0.5rem 0 1.5rem;
             border: 1px solid #ddd;
             font-family: 'Georgia', serif;
         }
-        .contact-form textarea {
+        .form-row textarea {
             min-height: 120px;
         }
         .hidden {
@@ -123,17 +168,32 @@
             font-size: 0.75rem;
         }
 
-        /* Tablet/Desktop Breakpoint */
-        @media (min-width: 768px) {
-            header { padding: 2rem; }
-            h1 { font-size: 2.5rem; }
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
             .gallery {
-                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-                padding: 3rem;
+                grid-template-columns: 1fr;
                 gap: 1.5rem;
+                padding: 1.5rem;
             }
-            .contact-section {
-                padding: 3rem;
+            .item-card img {
+                height: 250px;
+            }
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 0.3rem;
+            }
+            .form-row label {
+                text-align: left;
+                padding-top: 0.5rem;
+            }
+        }
+        @media (min-width: 1200px) {
+            .bio-content {
+                padding-left: 3rem;
+                width: 75%;
+            }
+            .bio-text br {
+                margin-top: 1.25rem;
             }
         }
     </style>
@@ -142,219 +202,101 @@
     <header>
         <h1>Significant New Artist Collection</h1>
         <h1>Paul Casso</h1>
-
         <p>Curated for the Discerning Collector</p>
-
-        <p>________________________________________________<p>
+        <div class="header-divider"></div>
     </header>
 
-<!-- Mobile-First Bio Section -->
-<section class="artist-bio">
-    <div class="bio-content">
-        <div class="artist-name">Paul Casso</div>
-        <p class="bio-text">Paul Casso is a nom de plume, as one might guess.  He is not a relative of a certain “Pi Casso”, if one’s imagination had begun to stray.<br><br>
-        The artist has had some formal artistic training however, he is largely self-trained.  He is mostly influenced by real world experiences, theatre, music, a lifetime of observations and disparate, exotic travels.<br><br>
-        Paul Casso would like to share some of their more recent works with the rest of the world to bring joy, enlightenment, and possibly inspiration to others to take up a brush, pencil, charcoal, pen or just a marker and express themselves.</p>
-    </div>
-</section>
+    <section class="artist-bio">
+        <div class="bio-content">
+            <div class="artist-name">Paul Casso</div>
+            <p class="bio-text">Paul Casso is a nom de plume, as one might guess. He is not a relative of a certain "Pi Casso", if one's imagination had begun to stray.<br><br>
+            The artist has had some formal artistic training however, he is largely self-trained. He is mostly influenced by real world experiences, theatre, music, a lifetime of observations and disparate, exotic travels.<br><br>
+            Paul Casso would like to share some of their more recent works with the rest of the world to bring joy, enlightenment, and possibly inspiration to others to take up a brush, pencil, charcoal, pen or just a marker and express themselves.</p>
+        </div>
+    </section>
 
-<!-- Optimized CSS -->
-<style>
-    .artist-bio {
-        padding: 1.25rem 0;
-        border-bottom: 1px solid #eee;
-        display: flex;
-        justify-content: center;
-    }
-    
-    .bio-content {
-        width: 88%;
-        max-width: 680px;
-        text-align: left;
-        padding-left: 1.5rem; /* Mobile indent */
-    }
-    
-    .artist-name {
-        font-family: 'Didot', serif;
-        font-size: clamp(1.25rem, 5vw, 1.5rem); /* Fluid sizing */
-        color: #000;
-        margin-bottom: 1rem;
-        padding-left: 0.25rem;
-    }
-    
-    .bio-text {
-        line-height: 1.7;
-        font-size: clamp(0.95rem, 3.5vw, 1.1rem); /* Fluid text */
-        margin: 0;
-        padding: 0 0.25rem;
-        word-spacing: 0.05em;
-    }
-    
-    /* Perfect paragraph spacing */
-    .bio-text br {
-        display: block;
-        content: "";
-        margin-top: 1rem; /* Mobile line gap */
-        height: 0;
-    }
-    
-    @media (min-width: 768px) {
-        .artist-bio {
-            padding: 1.75rem 0;
-        }
+    <div class="gallery">
+        <!-- Item 1 -->
+        <div class="item-card">
+            <img src="https://raw.githubusercontent.com/paulcasso25/Art/main/20241202_160507.jpg" alt="Winter" loading="lazy">
+            <p class="item-title">Winter</p>
+            <p class="item-details">Oil on Canvas | 2023</p>
+            <a href="#contact" class="btn">Inquire</a>
+        </div>
         
-        .bio-content {
-            padding-left: 3rem; /* Desktop indent */
-            width: 75%;
-        }
+        <!-- Item 2 -->
+        <div class="item-card">
+            <img src="https://raw.githubusercontent.com/paulcasso25/Art/main/20241214_152829.jpg" alt="Moonlight in Red Sky" loading="lazy">
+            <p class="item-title">Moonlight in Red Sky</p>
+            <p class="item-details">Acrylic on Wood | 2022</p>
+            <a href="#contact" class="btn">Inquire</a>
+        </div>
         
-        .bio-text br {
-            margin-top: 1.25rem; /* Desktop line gap */
-        }
-    }
-</style>
+        <!-- Item 3 -->
+        <div class="item-card">
+            <img src="https://raw.githubusercontent.com/paulcasso25/Art/main/20241231_145002.jpg" alt="Heat" loading="lazy">
+            <p class="item-title">Heat</p>
+            <p class="item-details">Acrylic on Canvas | 2022</p>
+            <a href="#contact" class="btn">Inquire</a>
+        </div>
 
-<div class="gallery">
-  <!-- Item 1 -->
-  <div class="item-card">
-    <img src="https://raw.githubusercontent.com/paulcasso25/Art/main/20241202_160507.jpg" alt="Artwork 1" loading="lazy">
-    <p class="item-title">Winter</p>
-    <p class="item-details">Oil on Canvas | 2023</p>
-    <a href="#contact" class="btn">Inquire</a>
-  </div>
-  
-  <!-- Item 2 -->
-  <div class="item-card">
-    <img src="https://raw.githubusercontent.com/paulcasso25/Art/main/20241214_152829.jpg" alt="Artwork 2" loading="lazy">
-    <p class="item-title">Moonlight in Red Sky</p>
-    <p class="item-details">Acrylic on Wood | 2022</p>
-    <a href="#contact" class="btn">Inquire</a>
-  </div>
-  
- <!-- Item 3 -->
-  <div class="item-card">
-    <img src="https://raw.githubusercontent.com/paulcasso25/Art/main/20241231_145002.jpg" alt="Artwork 2" loading="lazy">
-    <p class="item-title">Heat</p>
-    <p class="item-details">Acrylic on Canvas | 2022</p>
-    <a href="#contact" class="btn">Inquire</a>
-  </div>
+        <!-- Item 4 -->
+        <div class="item-card">
+            <img src="https://raw.githubusercontent.com/paulcasso25/Art/main/20250427_142841.jpg" alt="Summer Rain" loading="lazy">
+            <p class="item-title">Summer Rain</p>
+            <p class="item-details">Acrylic on Canvas | 2022</p>
+            <a href="#contact" class="btn">Inquire</a>
+        </div>
 
-     <!-- Item 4 -->
-  <div class="item-card">
-    <img src="https://raw.githubusercontent.com/paulcasso25/Art/main/20250427_142841.jpg" alt="Artwork 2" loading="lazy">
-    <p class="item-title">Summer Rain</p>
-    <p class="item-details">Acrylic on Canvas | 2022</p>
-    <a href="#contact" class="btn">Inquire</a>
-  </div>
-
-         <!-- Item 5 -->
-  <div class="item-card">
-    <img src="https://raw.githubusercontent.com/paulcasso25/Art/main/20250607_152052.jpg" alt="Artwork 2" loading="lazy">
-    <p class="item-title">The Old Bridge</p>
-    <p class="item-details">Acrylic on Canvas | 2022</p>
-    <a href="#contact" class="btn">Inquire</a>
-  </div>
+        <!-- Item 5 -->
+        <div class="item-card">
+            <img src="https://raw.githubusercontent.com/paulcasso25/Art/main/20250607_152052.jpg" alt="The Old Bridge" loading="lazy">
+            <p class="item-title">The Old Bridge</p>
+            <p class="item-details">Acrylic on Canvas | 2022</p>
+            <a href="#contact" class="btn">Inquire</a>
+        </div>
 
         <!-- Item 6 -->
-  <div class="item-card">
-    <img src="https://raw.githubusercontent.com/paulcasso25/Art/main/20250719_143235.jpg" alt="Artwork 2" loading="lazy">
-    <p class="item-title">Remembrance</p>
-    <p class="item-details">Acrylic on Canvas | 2022</p>
-    <a href="#contact" class="btn">Inquire</a>
-  </div>
-    
-</div>
-
-
-    <!-- Netlify Contact Form -->
-
-<!-- Updated Contact Form Section -->
-<section class="contact-section" id="contact">
-  <h2>Contact the Artist</h2>
-  <form name="contact" netlify netlify-honeypot="bot-field" action="/success.html">
-    <!-- Anti-spam field -->
-    <p class="hidden">
-      <label>Don't fill this out: <input name="bot-field"></label>
-    </p>
-    
-    <!-- Vertical Form Grid -->
-    <div class="form-grid">
-      <div class="form-row">
-        <label for="name">Full Name</label>
-        <input type="text" id="name" name="name" required>
-      </div>
-      
-      <div class="form-row">
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" required>
-      </div>
-      
-      <div class="form-row">
-        <label for="artwork">Artwork Reference</label>
-        <input type="text" id="artwork" name="artwork">
-      </div>
-      
-      <div class="form-row">
-        <label for="message">Message</label>
-        <textarea id="message" name="message" rows="5" required></textarea>
-      </div>
+        <div class="item-card">
+            <img src="https://raw.githubusercontent.com/paulcasso25/Art/main/20250719_143235.jpg" alt="Remembrance" loading="lazy">
+            <p class="item-title">Remembrance</p>
+            <p class="item-details">Acrylic on Canvas | 2022</p>
+            <a href="#contact" class="btn">Inquire</a>
+        </div>
     </div>
-    
-    <button type="submit" class="btn">Send Inquiry</button>
-  </form>
-</section>
 
-<!-- Optimized CSS -->
-<style>
-  .contact-section {
-    padding: 1.5rem;
-  }
-  
-  .form-grid {
-    max-width: 500px;
-    margin: 0 auto;
-  }
-  
-  .form-row {
-    display: grid;
-    grid-template-columns: 120px 1fr; /* Fixed label width */
-    gap: 0.75rem;
-    align-items: center;
-    margin-bottom: 1.25rem;
-  }
-  
-  .form-row label {
-    font-size: 0.95rem;
-    color: #555;
-    text-align: right; /* Right-aligned labels */
-  }
-  
-  .form-row input,
-  .form-row textarea {
-    width: 100%;
-    padding: 0.7rem;
-    border: 1px solid #ddd;
-    font-family: 'Georgia', serif;
-  }
-  
-  .form-row textarea {
-    min-height: 120px;
-  }
-  
-  /* Mobile adjustments */
-  @media (max-width: 600px) {
-    .form-row {
-      grid-template-columns: 1fr; /* Stack on mobile */
-      gap: 0.3rem;
-    }
-    
-    .form-row label {
-      text-align: left;
-      padding-top: 0.5rem;
-    }
-  }
-</style>
-
+    <section class="contact-section" id="contact">
+        <h2>Contact the Artist</h2>
+        <form name="contact" netlify netlify-honeypot="bot-field" action="/success.html">
+            <p class="hidden">
+                <label>Don't fill this out: <input name="bot-field"></label>
+            </p>
+            
+            <div class="form-grid">
+                <div class="form-row">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                
+                <div class="form-row">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="form-row">
+                    <label for="artwork">Artwork Reference</label>
+                    <input type="text" id="artwork" name="artwork">
+                </div>
+                
+                <div class="form-row">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                </div>
+            </div>
+            
+            <button type="submit" class="btn">Send Inquiry</button>
+        </form>
+    </section>
 
     <footer>
         <p>© 2025 The Gallery. All rights reserved.</p>
